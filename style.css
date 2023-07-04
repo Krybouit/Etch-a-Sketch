@@ -1,0 +1,35 @@
+body {
+   box-sizing: border-box;
+   padding: 0%;
+   margin: 0%;
+   height: 900px;
+}
+
+#grid-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 900px;
+}
+
+
+
+
+#grid-container {
+    display: inline-flex;
+    flex-wrap:wrap;
+    max-width: 450px;
+   max-height: 432px;
+}
+
+
+
+.box {
+    height: 25px;
+    width: 25px;
+    border: 1px solid black;
+}
+
+.black {
+    background-color: black;
+}
