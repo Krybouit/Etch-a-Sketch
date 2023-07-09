@@ -1,25 +1,17 @@
 const gridContainer = document.getElementById("grid-container");
-const button = document.querySelector("button");
+const clearBtn = document.getElementById("clearBtn");
+const sliderValue = document.getElementById("sliderValue");
+const valueOutput = document.getElementById("valueOutput");
+valueOutput.innerHTML = sliderValue.value;
 
-button.addEventListener("click", gridSize);
-
-
-function gridSize() {
-let sizeNumber = prompt("Choose grid size from (2-100)");
-if (sizeNumber > 100 || sizeNumber == 0 ||  sizeNumber == 1 || isNaN(sizeNumber)) {
-    alert("Please choose a number between (2-100)");
-    return gridSize();
-}
-gridContainer.style.gridTemplateColumns = `repeat(${sizeNumber}, 1fr)`;
-gridContainer.style.gridTemplateRows = `repeat(${sizeNumber}, 1fr)`;
-box(sizeNumber);
+sliderValue.oninput = function gridSize() {
+    let sizeNumber = sliderValue.value;
+    gridContainer.style.gridTemplateColumns = `repeat(${sizeNumber}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${sizeNumber}, 1fr)`;
+    valueOutput.innerHTML = sliderValue.value;
+    box(sizeNumber);
 }
 
-function resetGrid(parent) {
-    while(parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
 
 function box(size) {
     resetGrid(gridContainer);
@@ -31,8 +23,17 @@ function box(size) {
         gridContainer.appendChild(square);
         square.addEventListener("mouseover", function(event) {
             event.target.style.backgroundColor = "black";
-        })    
-        
+        })
+        clearBtn.addEventListener("click", function() {
+            square.style.backgroundColor = "white";
+        })
+    }
+}
+
+
+function resetGrid(parent) {
+    while(parent.firstChild) {
+        parent.removeChild(parent.firstChild);
     }
 }
 
