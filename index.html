@@ -10,11 +10,19 @@
     <div class ="header">
         <h1>Etch-a-Sketch</h1>
     </div>
+    <p id ="valueOutput"></p>
     <div id="rangeSlider">
         <input type="range" min="2" max="100" value="16" id="sliderValue">
-        <p id ="valueOutput"></p>
     </div>
-    <button id ="clearBtn">Clear</button>
+    <div id ="buttonWrapper">
+        <button id ="pen" class ="btnStyle press focus">Pen</button>
+        <button id ="eraser" class ="btnStyle press">Eraser</button>
+        <button id ="clearBtn" class ="btnStyle">Clear</button>
+        <div id = colorWrapper>
+            <p>Color:</p>
+            <input type="color" id="colorPicker">
+        </div>
+    </div>
     <div id="grid-wrapper">
         <div id="grid-container"> </div>
     </div>
